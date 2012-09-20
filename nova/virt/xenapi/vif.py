@@ -61,7 +61,7 @@ class XenAPIBridgeDriver(XenVIFDriver):
         vif_rec['VM'] = vm_ref
         vif_rec['MAC'] = mapping['mac']
         vif_rec['MTU'] = '1500'
-        vif_rec['other_config'] = {}
+        vif_rec['other_config'] = {"ethtool-tx":"false"}
         if "rxtx_cap" in mapping:
             vif_rec['qos_algorithm_type'] = "ratelimit"
             vif_rec['qos_algorithm_params'] = {"kbps":
@@ -154,7 +154,7 @@ class XenAPIOpenVswitchDriver(XenVIFDriver):
         vif_rec['qos_algorithm_params'] = {}
         # OVS on the hypervisor monitors this key and uses it to
         # set the iface-id attribute
-        vif_rec['other_config'] = {"nicira-iface-id": mapping['vif_uuid']}
+        vif_rec['other_config'] = {"nicira-iface-id": mapping['vif_uuid'],"ethtool-tx":"false"}
         return vif_rec
 
     def unplug(self, instance, network, mapping):
