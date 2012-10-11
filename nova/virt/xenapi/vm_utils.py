@@ -1806,6 +1806,8 @@ def _get_this_vm_ref(session):
 
 
 def _is_vdi_pv(dev):
+    LOG.debug("Forcing all vms are PV")
+    return True
     LOG.debug(_("Running pygrub against %s"), dev)
     dev_path = utils.make_dev_path(dev)
     output = os.popen('pygrub -qn %s' % dev_path)
