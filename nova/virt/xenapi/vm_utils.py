@@ -123,7 +123,7 @@ class ImageType(object):
     KERNEL_STR = "kernel"
     RAMDISK_STR = "ramdisk"
     DISK_STR = "root"
-    DISK_RAW_STR = "os_raw"
+    DISK_RAW_STR = "root"
     DISK_VHD_STR = "vhd"
     DISK_ISO_STR = "iso"
     _strs = (KERNEL_STR, RAMDISK_STR, DISK_STR, DISK_RAW_STR, DISK_VHD_STR,
